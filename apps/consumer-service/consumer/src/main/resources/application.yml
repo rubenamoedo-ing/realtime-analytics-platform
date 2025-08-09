@@ -1,0 +1,18 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: consumer-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  datasource:
+    url: jdbc:postgresql://localhost:5432/events
+    username: app
+    password: app
+  jpa:
+    hibernate.ddl-auto: update
+
+management:
+  endpoints.web.exposure.include: prometheus
+server:
+  port: 8082
