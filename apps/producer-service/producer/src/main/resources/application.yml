@@ -6,6 +6,10 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 management:
-  endpoints.web.exposure.include: prometheus
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health,info
 server:
   port: 8081
+  address: 0.0.0.0

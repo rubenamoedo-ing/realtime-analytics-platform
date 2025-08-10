@@ -13,6 +13,10 @@ spring:
     hibernate.ddl-auto: update
 
 management:
-  endpoints.web.exposure.include: prometheus
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health,info
 server:
   port: 8082
+  address: 0.0.0.0

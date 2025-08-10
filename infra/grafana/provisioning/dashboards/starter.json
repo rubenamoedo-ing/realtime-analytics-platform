@@ -1,0 +1,18 @@
+{
+  "title": "Starter",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Producer HTTP req/min",
+      "targets": [{"expr": "sum(increase(http_server_requests_seconds_count{instance=\"host.docker.internal:8081\"}[1m]))"}],
+      "gridPos": {"x":0,"y":0,"w":12,"h":6}
+    },
+    {
+      "type": "stat",
+      "title": "Consumer HTTP req/min",
+      "targets": [{"expr": "sum(increase(http_server_requests_seconds_count{instance=\"host.docker.internal:8082\"}[1m]))"}],
+      "gridPos": {"x":12,"y":0,"w":12,"h":6}
+    }
+  ],
+  "schemaVersion": 38
+}
