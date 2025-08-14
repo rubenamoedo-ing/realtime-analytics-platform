@@ -1,5 +1,5 @@
 package com.consumer.messaging;
-
+/*
 import com.consumer.domain.EventEntity;
 import com.consumer.domain.EventRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -84,3 +84,4 @@ public class EventListener {
         }
     }
 }
+*/

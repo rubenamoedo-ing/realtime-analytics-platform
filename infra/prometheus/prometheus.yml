@@ -1,19 +1,19 @@
-global:
-  scrape_interval: 5s
-
 scrape_configs:
-  - job_name: 'prometheus'
-    static_configs:
-      - targets: ['prometheus:9090']
+  #- job_name: 'spring-apps'
 
-  - job_name: 'spring-apps'
-    metrics_path: /actuator/prometheus
+  #  scrape_interval: 5s
+  #  metrics_path: /actuator/prometheus 
+  #  static_configs:
+  #    - targets:
+  #        - '172.28.7.52:8081'     # this one is UP
+          # remove 8082 if you’re not running an app there
+          # - '172.28.7.52:8082'
+  - job_name: 'wow-analytics'
+    scrape_interval: 5s
+    metrics_path: /actuator/prometheus 
     static_configs:
-      - targets:
-          - '172.28.7.52:8081'  # producer
-          - '172.28.7.52:8082'  # consumer
-
-  - job_name: 'redpanda'
-    metrics_path: /metrics
-    static_configs:
-      - targets: ['redpanda:9644']
+      # If analytics runs on the host:
+      - targets: ['172.28.7.52:8082']   # or host.docker.internal:8082 on Mac/Win
+      # If analytics runs as a container on the same docker network:
+      # - targets: ['analytics:8082']   # use the container/service name
+ 

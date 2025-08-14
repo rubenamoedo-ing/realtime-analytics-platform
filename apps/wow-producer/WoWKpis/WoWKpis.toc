@@ -1,0 +1,5 @@
+## Interface: 11505
+## Title: WowKpis
+## Notes: KPIs to chat log for Kafka
+## SavedVariables: WowKpisDB
+WowKpis.lua

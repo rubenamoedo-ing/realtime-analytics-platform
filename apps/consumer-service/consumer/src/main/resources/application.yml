@@ -1,22 +1,35 @@
 spring:
+  application:
+    name: wow-firehose-analytics
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
-      group-id: consumer-group
+      group-id: wow-firehose-analytics
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-  datasource:
-    url: jdbc:postgresql://localhost:5432/events
-    username: app
-    password: app
-  jpa:
-    hibernate.ddl-auto: update
+      auto-offset-reset: latest
+
+spring.autoconfigure.exclude: >
+  org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,
+  org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration,
+  org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
 
 management:
   endpoints:
     web:
       exposure:
         include: prometheus,health,info
+  endpoint:
+    prometheus:
+      enabled: true
+
 server:
   port: 8082
   address: 0.0.0.0
+
+app:
+  topic: wow.player.metrics.v1
+logging:
+  level:
+    org.springframework.kafka: DEBUG
+    org.apache.kafka: WARN

@@ -1,0 +1,4 @@
+confluent-kafka
+watchdog
+python-dotenv
+lz4

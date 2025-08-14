@@ -1,5 +1,5 @@
 package com.consumer.domain;
-
+/*
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,3 +35,4 @@ public class EventEntity {
 
 
 }
+*/
